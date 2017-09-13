@@ -37,8 +37,8 @@ void loop() {
    * 플렉스 센서 값
    */
   int flex_top = A0;
-  int flex_mid = A3;
-  int flex_bot = A5;
+  int flex_mid = A1;
+  int flex_bot = A2;
   /*
    * 자이로 센서 계산식
    */
@@ -53,12 +53,15 @@ void loop() {
   /*
    * 플렉스 센서 계산식
    */
+  int flexTopValue;
+  int flexMidValue;
+  int flexBotValue;
   flexTopValue = analogRead(flex_top);
   flexMidValue = analogRead(flex_mid);
   flexBotValue = analogRead(flex_bot);
   /*
    * 자이로 센서 출력
-   */
+//   */
   Serial.print("X : ");
   Serial.println(x);
   Serial.print("Y : ");
@@ -70,10 +73,11 @@ void loop() {
    * 플렉스 센서 출력
    */
   Serial.print("Top: ");
-  Serial.println(flexTopValue);
+  Serial.println(flexTopValue-900);
   Serial.print("Mid: ");
-  Serial.println(flexMidValue);
+  Serial.println(flexMidValue-900);
   Serial.print("Bot: ");
-  Serial.println(flexbotValue);
+  Serial.println(flexBotValue-900);
+  Serial.println("\n");
   delay(1000);
 }
